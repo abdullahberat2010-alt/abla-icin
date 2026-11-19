@@ -1,5 +1,4 @@
-alert("JavaScript çalışıyor!");
-alert(document.getElementById("slides"));
+
 const photos = [];
 
 for (let i = 1; i <= 7; i++) {
