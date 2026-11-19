@@ -1,1 +1,112 @@
 
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8dbbdc">
+    <title>İyi ki Doğdun 💙</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+
+        <div class="photo-frame">
+
+            <div class="photo-paper">
+                <div class="slider">
+                    <div class="slides" id="slides"></div>
+                </div>
+            </div>
+
+            <!-- Çizim tarzı doğum günü pastası -->
+            <svg class="cake" viewBox="0 0 120 120"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <ellipse cx="60" cy="101" rx="49" ry="10"
+                    fill="#f7d9c7" stroke="#805b49" stroke-width="2.5"/>
+
+                <path d="M17 70 Q17 64 25 64 H95 Q103 64 103 70
+                    V94 Q60 111 17 94 Z"
+                    fill="#8ed0e5" stroke="#805b49" stroke-width="3"/>
+
+                <path d="M17 70 Q28 78 37 71 Q46 83 56 73
+                    Q68 83 77 72 Q89 80 103 70"
+                    fill="none" stroke="#fff4d8" stroke-width="7"
+                    stroke-linecap="round"/>
+
+                <path d="M34 36 Q34 30 43 30 H78
+                    Q87 30 87 36 V63 Q60 75 34 63 Z"
+                    fill="#c9a8e2" stroke="#805b49" stroke-width="3"/>
+
+                <path d="M32 38 Q42 28 52 36 Q63 27 72 36
+                    Q84 30 89 39 Q91 47 84 47 Q78 44 75 49
+                    Q68 55 62 48 Q56 42 49 49 Q42 53 38 44 Z"
+                    fill="#fff3d9" stroke="#805b49" stroke-width="2.5"/>
+
+                <path d="M60 28 V15" stroke="#fff1d5"
+                    stroke-width="4" stroke-linecap="round"/>
+
+                <path d="M60 13 Q54 7 60 2 Q67 8 60 13"
+                    fill="#f3a66d" stroke="#805b49" stroke-width="1.5"/>
+
+                <path d="M44 42 l-3 4 M75 38 l3 4"
+                    stroke="#e9a1b9" stroke-width="2.5"
+                    stroke-linecap="round"/>
+
+                <path d="M35 84 l8 2 M72 91 l8 2"
+                    stroke="#fff3d9" stroke-width="3"
+                    stroke-linecap="round"/>
+
+            </svg>
+
+        </div>
+
+        <p class="caption">Birlikte nice güzel anılara 💙</p>
+
+    </main>
+
+    <script>
+        const slides = document.getElementById("slides");
+
+        const photos = [];
+
+        for (let i = 1; i <= 7; i++) {
+            photos.push(`${i}.jpeg`);
+        }
+
+        photos.push("11.jpg");
+
+        photos.forEach((photo, index) => {
+            const slide = document.createElement("div");
+            slide.className = "slide";
+
+            const img = document.createElement("img");
+            img.src = `images/${photo}`;
+            img.alt = `Anı ${index + 1}`;
+
+            slide.appendChild(img);
+            slides.appendChild(slide);
+        });
+
+        let currentSlide = 0;
+
+        const slideTimer = setInterval(() => {
+
+            if (currentSlide >= photos.length - 1) {
+                clearInterval(slideTimer);
+                return;
+            }
+
+            currentSlide++;
+
+            slides.style.transform =
+                `translateX(-${currentSlide * 100}%)`;
+
+        }, 3500);
+    </script>
+
+</body>
+</html>
+
