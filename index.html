@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<script src="script.js"></script>
     <main class="container">
 
         <div class="photo-frame">
@@ -66,46 +66,6 @@
         <p class="caption">Birlikte nice güzel anılara 💙</p>
 
     </main>
-
-    <script>
-        const slides = document.getElementById("slides");
-
-        const photos = [];
-
-        for (let i = 1; i <= 7; i++) {
-            photos.push(`${i}.jpeg`);
-        }
-
-        photos.push("11.jpg");
-
-        photos.forEach((photo, index) => {
-            const slide = document.createElement("div");
-            slide.className = "slide";
-
-            const img = document.createElement("img");
-            img.src = `images/${photo}`;
-            img.alt = `Anı ${index + 1}`;
-
-            slide.appendChild(img);
-            slides.appendChild(slide);
-        });
-
-        let currentSlide = 0;
-
-        const slideTimer = setInterval(() => {
-
-            if (currentSlide >= photos.length - 1) {
-                clearInterval(slideTimer);
-                return;
-            }
-
-            currentSlide++;
-
-            slides.style.transform =
-                `translateX(-${currentSlide * 100}%)`;
-
-        }, 3500);
-    </script>
 
 </body>
 </html>
